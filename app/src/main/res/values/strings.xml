@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">RecycleVIewApp</string>
     <string name="score">Score:</string>
+    <string name="fill">Fill</string>
 </resources>
