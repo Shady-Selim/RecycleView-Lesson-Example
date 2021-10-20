@@ -3,8 +3,11 @@ package com.shady.recycleviewapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import java.security.Principal
 import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity() {
@@ -20,32 +23,14 @@ class MainActivity : AppCompatActivity() {
         recyclerView = findViewById(R.id.rvRecycleView)
         fillButton = findViewById(R.id.btnFill)
 
-        appDB = AppDataBase.getAppDataBase(this)!!
+        val mainVM = ViewModelProvider(this).get(MainVM::class.java)
 
-
-        thread {
-            val dataDB = appDB.userDao.getAllUsers()
-            if (dataDB.isEmpty()) {
-                for (i in 1..100) {
-                    val user = User(
-                        fName = "fName $i",
-                        lName = "lName $i",
-                        id = i,
-                        score = i * 2
-                    )
-                    appDB.userDao.insert(user)
-                }
-            }
-        }
+        mainVM.fillDB()
 
         fillButton.setOnClickListener(){
-                //data += user
-            thread {
-                val rvAdaptorData = appDB.userDao.getAllUsers()
-                runOnUiThread {
-                    recyclerView.adapter = UserRecycleViewAdapter(rvAdaptorData)
-                }
-            }
+            mainVM.getAllUsers().observe(this, Observer {
+                recyclerView.adapter = UserRecycleViewAdapter(it)
+            })
         }
 
         recyclerView.layoutManager = LinearLayoutManager(this)

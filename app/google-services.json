@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "110814538514",
+    "project_id": "testingfirebase-2fc4d",
+    "storage_bucket": "testingfirebase-2fc4d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:110814538514:android:b17b9a1f257eb0db5b21cb",
+        "android_client_info": {
+          "package_name": "com.shady.recycleviewapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "110814538514-9ctir2ufnkvaqf4m0mp8d75rvov7qacv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB866kfDSI2QSybuDnWYEYyD15qBC_0hQE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "110814538514-9ctir2ufnkvaqf4m0mp8d75rvov7qacv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
